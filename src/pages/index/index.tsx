@@ -2,8 +2,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-// import Clock from '../../components/clock';
-import PropsDemo from '../../components/base/props';
+
 
 export default class Index extends Component {
 
@@ -84,7 +83,6 @@ export default class Index extends Component {
         <Text>{name}</Text>
         <View><Text>{text}</Text></View>
         {/* <Clock /> */}
-        <PropsDemo title={title} obj={obj} ontest={this.test.bind(this)}></PropsDemo>
       </View>
     )
   }

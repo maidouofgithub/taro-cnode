@@ -35,7 +35,7 @@ export default class PropsDemo extends Component {
     return (
       <View>
         <Text>{title}</Text>
-        <View><Text>{obj.key[0].name}</Text></View>
+        {/* <View><Text>{obj.key[0].name}</Text></View> */}
         <View ><Button onClick={this.childTest.bind(this)}>调用父组件事件测试</Button></View>
       </View>
     );
