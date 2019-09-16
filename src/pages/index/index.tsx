@@ -15,20 +15,65 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  componentWillMount () { }
+  state = {
+    name: 'bob',
+    text: 'test'
+  }
 
-  componentDidMount () { }
+  componentWillMount() {
+    console.log('第一次渲染之前执行 且只执行一次');
+    console.log(`更新数据前${this.state.name}`);
+    this.setState({ name: '张三', text: '李四' });
+  }
 
-  componentWillUnmount () { }
+  componentDidMount() {
+    console.log('第一次渲染之后执行 且只执行一次');
+    console.log(`更新数据后,${this.state.name}`);
+    this.setState({ name: '张三', text: '李四' });
+  }
 
-  componentDidShow () { }
+  componentWillUnmount() {
+    console.log('第一次卸载时执行 且只执行一次');
+  }
 
-  componentDidHide () { }
+  componentDidShow() {
+    //reactjs 中不存在
+    //taro中扩展，支持小程序和H5
+    console.log('页面展示时触发');
 
-  render () {
+
+  }
+
+  componentDidHide() {
+    console.log('页面隐藏时触发');
+  }
+
+  componentWillUpdate() {
+    console.log('state 数据将要更新');
+  }
+
+  componentDidUpdate() {
+    console.log('state 数据更新过后');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    //检查此次setState是否需要进行render调用
+    //一般多次setState调用后，提升render性能
+    //demo
+    if (this.state.name == "张三") {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  render() {
+    let { name, text } = this.state;
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <Text>{name}</Text>
+        <View><Text>{text}</Text></View>
       </View>
     )
   }
