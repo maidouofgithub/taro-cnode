@@ -2,6 +2,9 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
+// import Clock from '../../components/clock';
+import PropsDemo from '../../components/base/props';
+
 export default class Index extends Component {
 
   /**
@@ -17,19 +20,21 @@ export default class Index extends Component {
 
   state = {
     name: 'bob',
-    text: 'test'
+    text: 'test',
+    title: '父页面传值',
+    obj: undefined
   }
 
   componentWillMount() {
     console.log('第一次渲染之前执行 且只执行一次');
     console.log(`更新数据前${this.state.name}`);
-    this.setState({ name: '张三', text: '李四' });
   }
 
   componentDidMount() {
     console.log('第一次渲染之后执行 且只执行一次');
-    console.log(`更新数据后,${this.state.name}`);
-    this.setState({ name: '张三', text: '李四' });
+    this.setState({ name: '张三', text: '李四',obj:{key:[{name:'自立'}]}},()=> {
+      console.log(`更新数据后,${this.state.name}`);
+    });
   }
 
   componentWillUnmount() {
@@ -68,12 +73,18 @@ export default class Index extends Component {
     }
   }
 
+  test(){
+    console.log('父组件传递事件到子组件');
+  }
+
   render() {
-    let { name, text } = this.state;
+    let { name, text,title,obj } = this.state;
     return (
       <View className='index'>
         <Text>{name}</Text>
         <View><Text>{text}</Text></View>
+        {/* <Clock /> */}
+        <PropsDemo title={title} obj={obj} ontest={this.test.bind(this)}></PropsDemo>
       </View>
     )
   }
