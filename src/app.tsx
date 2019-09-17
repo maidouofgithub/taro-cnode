@@ -21,7 +21,10 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/demo/demo',
-      'pages/index/index'
+      'pages/index/index',
+      'pages/base/navigate',
+      'pages/taro-ui/index',
+      'pages/taro-ui/button',
     ],
     window: {
       backgroundTextStyle: 'light',
