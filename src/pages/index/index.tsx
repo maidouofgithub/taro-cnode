@@ -1,7 +1,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import './index.scss'
+import { AtGrid } from "taro-ui";
 
+import './index.scss'
 
 
 export default class Index extends Component {
@@ -18,22 +19,24 @@ export default class Index extends Component {
   }
 
   state = {
-    name: 'bob',
-    text: 'test',
-    title: '父页面传值',
-    obj: undefined
+    gridData: [
+      {
+        image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
+        value: 'CNode'
+      },
+      {
+        image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
+        value: 'Taro-UI'
+      },
+    ]
   }
 
   componentWillMount() {
     console.log('第一次渲染之前执行 且只执行一次');
-    console.log(`更新数据前${this.state.name}`);
   }
 
   componentDidMount() {
     console.log('第一次渲染之后执行 且只执行一次');
-    this.setState({ name: '张三', text: '李四',obj:{key:[{name:'自立'}]}},()=> {
-      console.log(`更新数据后,${this.state.name}`);
-    });
   }
 
   componentWillUnmount() {
@@ -64,25 +67,25 @@ export default class Index extends Component {
     //检查此次setState是否需要进行render调用
     //一般多次setState调用后，提升render性能
     //demo
-    if (this.state.name == "张三") {
-      return false;
-    }
-    else {
-      return true;
-    }
+
   }
 
-  test(){
+  test() {
     console.log('父组件传递事件到子组件');
   }
 
+  gridClickHandle(item,index){
+    console.log(index);
+    console.log(item);
+  }
+
   render() {
-    let { name, text,title,obj } = this.state;
+    let {gridData} = this.state;
     return (
       <View className='index'>
-        <Text>{name}</Text>
-        <View><Text>{text}</Text></View>
-        {/* <Clock /> */}
+
+        <AtGrid mode='square' hasBorder={true} data={gridData} onClick={this.gridClickHandle.bind(this)}/>
+
       </View>
     )
   }

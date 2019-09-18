@@ -1,5 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
+require('@tarojs/async-await');
 
 import './app.scss'
 
@@ -20,8 +21,10 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/demo/demo',
       'pages/index/index',
+      'pages/taro-ui/index',
+      'pages/cnode/index',
+
       'pages/base/navigate',
       'pages/taro-ui/index',
       'pages/taro-ui/button',

@@ -1,33 +1,41 @@
-import Taro , { Component } from '@tarojs/taro';
-import { View, Text , Button} from '@tarojs/components';
-import { AtList, AtListItem } from "taro-ui";
+import Taro, { Component } from '@tarojs/taro';
+import { View, Text, Button } from '@tarojs/components';
+
+import { ACCESS_TOKEN } from '../../constants/token';
+
+import './index.scss';
 
 export default class TaroUIDemo extends Component {
 
-   config = {
-       navigationBarTitleText: 'TaroUIDemo'
+  config = {
+    navigationBarTitleText: 'TaroUIDemo'
   }
 
-  state={}
+  state = {}
 
-  componentWillMount () {}
-  componentDidMount () {} 
-  componentWillReceiveProps (nextProps,nextContext) {} 
-  componentWillUnmount () {} 
-  componentDidShow () {} 
-  componentDidHide () {} 
-  componentDidCatchError () {} 
-  componentDidNotFound () {} 
+  componentWillMount() { }
+  componentDidMount() { }
+  componentWillReceiveProps(nextProps, nextContext) { }
+  componentWillUnmount() { }
+  componentDidShow() { }
+  componentDidHide() { }
+  componentDidCatchError() { }
+  componentDidNotFound() { }
+
+
+
   render() {
+    let token = ACCESS_TOKEN;
     return (
-      <View>
-        <AtList>
-                <AtListItem title='标题文字' onClick={this.handleClick} />
-                <AtListItem title='标题文字' arrow='right' />
-                <AtListItem title='标题文字' extraText='详细信息' />
-                <AtListItem title='禁用状态' disabled extraText='详细信息' />
-            </AtList>
+      <View className='taro-index'>
+        <View className='token-moudle'>
+          token:
+          <Text className='token'>{token}</Text>
+        </View>
+
+
+
       </View>
     );
   }
-} 
+}
