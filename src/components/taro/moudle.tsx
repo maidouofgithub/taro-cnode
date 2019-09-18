@@ -32,7 +32,7 @@ export default class BaseMoule extends Component {
 
   render() {
     let { title } = this.state;
-    return ( 
+    return (
 
       <View className='base-moudle'>
         {/* <View className='title'>{title}</View> */}
@@ -44,17 +44,16 @@ export default class BaseMoule extends Component {
         color='#000'
         leftText='返回'
         title = {title}
-        rightFirstIconType='bullet-list' 
+        rightFirstIconType='bullet-list'
       >
         <View>Taro UI</View>
       </AtNavBar>
 
         <View className='button'>
-          <AtButton type='primary' size='normal'>按钮文案</AtButton>
-          <AtButton type='primary' size='small'>按钮文案</AtButton>
+          <AtButton type='primary' size='normal'>返回</AtButton>
         </View>
       </View>
 
     );
   }
-} 
+}

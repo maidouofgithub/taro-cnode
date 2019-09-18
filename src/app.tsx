@@ -21,9 +21,10 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index',
+
       'pages/taro-ui/index',
       'pages/cnode/index',
+      'pages/index/index',
 
       'pages/base/navigate',
       'pages/taro-ui/index',

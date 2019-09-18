@@ -2,6 +2,8 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { AtGrid } from "taro-ui";
 
+import Menu from '../../components/cnode/menu';
+
 import './index.scss'
 
 
@@ -74,18 +76,40 @@ export default class Index extends Component {
     console.log('父组件传递事件到子组件');
   }
 
-  gridClickHandle(item,index){
+  gridClickHandle(item, index) {
     console.log(index);
     console.log(item);
+    switch (item.value) {
+      case 'CNode': {
+        Taro.navigateTo({ url: '/pages/cnode/index' });
+        break;
+      }
+      case 'Taro-UI': {
+        Taro.navigateTo({ url: '/pages/taro-ui/index' });
+        break;
+      }
+      default: {
+        Taro.navigateTo({ url: '/pages/cnode/index' });
+      }
+    }
   }
 
   render() {
-    let {gridData} = this.state;
+    let { gridData } = this.state;
     return (
       <View className='index'>
 
-        <AtGrid mode='square' hasBorder={true} data={gridData} onClick={this.gridClickHandle.bind(this)}/>
+        <Menu title='测试' leftText='返回'> </Menu>
 
+        <View className='moudle'>
+
+          <AtGrid
+          mode='square'
+          hasBorder={true}
+          data={gridData}
+          onClick={this.gridClickHandle.bind(this)} />
+
+        </View>
       </View>
     )
   }
