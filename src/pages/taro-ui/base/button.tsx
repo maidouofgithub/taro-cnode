@@ -43,6 +43,12 @@ export default class TaroButton extends Component {
             <AtButton loading type='primary'>按钮文案</AtButton>
           </Panel>
 
+          <Panel
+          title='小按钮'
+          >
+            <AtButton type='primary' size='small'>按钮文案</AtButton>
+          </Panel>
+
         </BaseMoule>
       </View>
     );
