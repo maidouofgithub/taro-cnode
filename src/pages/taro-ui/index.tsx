@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Button } from '@tarojs/components';
+
 import { AtGrid } from "taro-ui"
 import Nav from '../../components/taro/nav';
 
@@ -14,9 +15,11 @@ export default class TaroUIDemo extends Component {
   }
 
   state = {
+    token: '',
     gridList: [{
       image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-      value: '基础组件'
+      value: '基础组件',
+      url: '/pages/taro-ui/base/button'
     },
     {
       image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
@@ -41,13 +44,23 @@ export default class TaroUIDemo extends Component {
     {
       image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
       value: '高阶组件'
-    }]
+    },
+    {
+      image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+      value: 'Canvas',
+      url: ''
+    }
+    ]
   }
 
   componentWillMount() {
-    console.info(ACCESS_TOKEN);
+    this.setState({token:ACCESS_TOKEN},()=>{
+      console.info(this.state.token);
+    });
   }
-  componentDidMount() { }
+  componentDidMount() {
+
+  }
   componentWillReceiveProps(nextProps, nextContext) { }
   componentWillUnmount() { }
   componentDidShow() { }
@@ -58,18 +71,16 @@ export default class TaroUIDemo extends Component {
   gridClickHandle(item, index) {
     console.log(index);
     console.log(item);
-    Taro.navigateTo({ url: '/pages/taro-ui/index' });
+    if(item&&item.url)
+    {
+      Taro.navigateTo({ url: item.url });
+    }
   }
 
   render() {
-    let {gridList} = this.state;
+    let { gridList,token } = this.state;
     return (
       <View className='taro-index'>
-
-        {/* <View className='token-moudle'>
-          token:
-          <Text className='token'>{token}</Text>
-        </View> */}
 
         <View className='nav'>
           <Nav title='taro-ui-首页'></Nav>
@@ -78,14 +89,14 @@ export default class TaroUIDemo extends Component {
 
         {/* TODO: 采用childen 渲染*/}
 
-            <View className='components'>
-              <AtGrid
-              data={gridList}
-              hasBorder={true}
-              columnNum={3}
-              onClick={this.gridClickHandle.bind(this)}
-              />
-            </View>
+        <View className='components'>
+          <AtGrid
+            data={gridList}
+            hasBorder={true}
+            columnNum={3}
+            onClick={this.gridClickHandle.bind(this)}
+          />
+        </View>
 
       </View>
     );

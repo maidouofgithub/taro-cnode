@@ -26,9 +26,12 @@ class App extends Component {
       'pages/cnode/index',
       'pages/index/index',
 
-      'pages/base/navigate',
-      'pages/taro-ui/index',
-      'pages/taro-ui/button',
+      //taro-ui
+      //base components
+      '/pages/taro-ui/base/button',
+
+      //view components
+
     ],
     window: {
       backgroundTextStyle: 'light',

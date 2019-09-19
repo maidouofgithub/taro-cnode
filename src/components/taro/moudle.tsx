@@ -35,23 +35,26 @@ export default class BaseMoule extends Component {
     return (
 
       <View className='base-moudle'>
-        {/* <View className='title'>{title}</View> */}
 
         <AtNavBar
-        // onClickRgIconSt={this.handleClick}
-        // onClickRgIconNd={this.handleClick}
-        // onClickLeftIcon={this.handleClick}
-        color='#000'
-        leftText='返回'
-        title = {title}
-        rightFirstIconType='bullet-list'
-      >
-        <View>Taro UI</View>
-      </AtNavBar>
+          // onClickRgIconSt={this.handleClick}
+          // onClickRgIconNd={this.handleClick}
+          // onClickLeftIcon={this.handleClick}
+          color='#000'
+          leftText='<Back'
+          title={title}
+          rightFirstIconType='bullet-list'
+        />
 
+        <View>
+        {this.props.children}
+        </View>
+
+        {/*
         <View className='button'>
           <AtButton type='primary' size='normal'>返回</AtButton>
-        </View>
+        </View> */}
+
       </View>
 
     );

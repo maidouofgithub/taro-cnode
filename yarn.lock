@@ -1602,6 +1602,11 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+better-gradual@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/better-gradual/download/better-gradual-1.0.0.tgz#37c40c910534ec05f8aaf592ca87b741675a89cc"
+  integrity sha1-N8QMkQU07AX4qvWSyoe3QWdaicw=
+
 better-scroll@^1.14.1:
   version "1.15.2"
   resolved "https://registry.npm.taobao.org/better-scroll/download/better-scroll-1.15.2.tgz#65ffc6058b8b4ff337b8dfad4bcb334d7699ceb6"
