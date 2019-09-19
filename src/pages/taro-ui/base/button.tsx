@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Button } from '@tarojs/components';
-import { AtButton } from 'taro-ui'
+import { AtButton } from 'taro-ui';
 
 import BaseMoule from '../../../components/taro/moudle';
 import Panel from '../../../components/taro/panel';
