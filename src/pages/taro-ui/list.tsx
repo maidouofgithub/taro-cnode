@@ -1,25 +1,30 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Button } from '@tarojs/components';
 
+import {Taro_UI} from '../../constants/taroui';
+
 export default class List extends Component {
 
   config = {
-    navigationBarTitleText: 'component list'
+    navigationBarTitleText: '组件列表'
   }
 
   state = {
-    components:[
-      {name:'基础组件',icon:'',list:[{name:'icon 图标',url:''},{name:'Button 按钮',url:''},{name:'Fab 浮动按钮',url:''}]},
-      {name:'基础组件',icon:'',list:[{name:'icon 图标',url:''},{name:'Button 按钮',url:''},{name:'Fab 浮动按钮',url:''}]},
-    ]
+    type: 'basic',
+    components: []
   }
 
+  componentWillMount() {
+    this.setState({ components: Taro_UI },()=>{
+      console.info(this.state.components);
+    });
+  }
 
   render() {
-    var {components}=this.state;
+    var { components } = this.state;
     return (
       <View className='component-list'>
-        {components.map(a => { return <Text>{a.name}</Text> })}
+        {components.map(a => { return <View>{a.name}</View> })}
       </View>
     );
   }
