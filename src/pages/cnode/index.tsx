@@ -6,10 +6,12 @@ import Menu from '../../components/cnode/menu';
 export default class Index extends Component {
 
    config = {
-       navigationBarTitleText: 'CNodeIndex'
+       navigationBarTitleText: '首页'
   }
 
-  state={}
+  state={
+
+  }
 
   componentWillMount () {}
   componentDidMount () {}
@@ -23,6 +25,7 @@ export default class Index extends Component {
     return (
       <View>
         <Menu></Menu>
+
       </View>
     );
   }
